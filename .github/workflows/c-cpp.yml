@@ -17,5 +17,4 @@ jobs:
       run: sudo apt-get install ocl-icd-opencl-dev
     - name: make
       run: |
-          cd Code
           make
