@@ -18,4 +18,3 @@ jobs:
     - name: make
       run: |
           make
-          ./main
