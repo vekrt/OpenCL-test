@@ -37,7 +37,7 @@ int main() {
 
 	if (all_platforms.size() == 0) {
 		cout << "No platform found." << endl;
-		exit(-1);
+		exit(1);
 	}
 	else {
 		cout << "Number of platforms found: " << all_platforms.size() << endl;
@@ -51,7 +51,7 @@ int main() {
 
 	if (all_devices.size() == 0) {
 		cout << "No device found" << endl;
-		exit(-1);
+		exit(1);
 	}
 
 	cl::Device default_device = all_devices[0];
@@ -66,7 +66,7 @@ int main() {
 	
 	if (kernel_file.fail()) {
 		cout << "Failed to open kernel file" << endl;
-		exit(-1);
+		exit(1);
 	}
 
 	std::stringstream kernel_buffer;
@@ -80,7 +80,7 @@ int main() {
 
 	if (program.build({default_device}) != CL_SUCCESS) {
 		cout << "Error building the program " << program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(default_device) << endl;
-		exit(-1);
+		exit(1);
 	}
 	cl_int error;
 	
@@ -237,7 +237,7 @@ vector<float> get_value(const Type& option_type, const vector<float>& strikes, c
 			kernel_vanilla = cl::Kernel(simulation.program, "vanilla_put_squared", &error);
 		else {
 			cout << "Unknown option type" << endl;
-			exit(-1);
+			exit(1);
 		}
 		//check_error(error, "Kernel reduction vanilla");
 		kernel_vanilla.setArg(0, simulation.spot);
@@ -283,7 +283,7 @@ vector<float> get_value(const Type& option_type, const vector<float>& strikes, c
 vector<Option> get_error(const Type& option_type, const vector<float>& strikes, const Simulation& simulation) {
 	if ((option_type == Call2) || (option_type == Put2)) {
 		cout << "Cannot compute the error of the error" << endl;
-		exit(-1);
+		exit(1);
 	}
 
 	vector<float> option_value;
@@ -298,7 +298,7 @@ vector<Option> get_error(const Type& option_type, const vector<float>& strikes, 
 	}
 	else {
 		cout << "Unknown option type" << endl;
-		exit(-1);
+		exit(1);
 	}
 
 	vector<Option> result;
