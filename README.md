@@ -1,3 +1,4 @@
+[![C/C++ CI](https://github.com/vekrt/OpenCL-test/actions/workflows/c-cpp.yml/badge.svg?branch=main)](https://github.com/vekrt/OpenCL-test/actions/workflows/c-cpp.yml)
 # OpenCL-test
 
 Monte-Carlo simulation of Bachelier/Normal process on the GPU using OpenCL. The simulation computes the value of vanilla call and put options.
