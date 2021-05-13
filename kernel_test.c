@@ -92,6 +92,8 @@ void kernel bachelier_vanilla(global size_t* counter,
 		counter[gid] = c.v[0];
 	}
 
+
+// The reduction algorithms are adapted from the presentation by Mark Harris https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf
 void kernel vanilla_call(global float* igdata,
 			 global float* ogdata,
 			 local float* sdata, 
